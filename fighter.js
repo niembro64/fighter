@@ -9,13 +9,14 @@ class Fighter {
     }
 
     attack(opponent) {
-        opponent.percent += 5;
+        if (opponent instanceof Fighter) {
+            opponent.percent += 5;
+            console.log(
+                "${this.name} attacked ${opponent.name} and delt damage!"
+            );
+        }
     }
+
 }
 
-const rob = new Fighter("Rob", 1, 8, 7, 5);
-const kirby = new Fighter("Kirby", 2, 5, 5, 4);
-
-console.log(rob);
-kirby.attack(rob);
-console.log(rob);
+module.exports = Fighter;
